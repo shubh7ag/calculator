@@ -52,3 +52,17 @@ $.ajax({
         alert('Error calculating cost. Please try again.');
     }
 });
+fetch('https://calculator-8ikt.onrender.com', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ features: selectedFeatures }),
+})
+.then(response => response.json())
+.then(data => {
+    setTotalCost(data.total); // Update your state here
+})
+.catch(error => {
+    console.error('Error:', error);
+});
