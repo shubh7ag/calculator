@@ -39,5 +39,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    $.ajax({
+      url: 'https://your-vercel-url.com/calculate-cost', // Update this
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ features: selectedFeatures }),
+      success: function(response) {
+          $('#total-cost').text(response.total);
+      },
+      error: function() {
+          alert('Error calculating cost. Please try again.');
+      }
+  }); 
   </body>
 </html>
