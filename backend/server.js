@@ -40,3 +40,15 @@ app.post('/calculate-cost', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+$.ajax({
+    url: 'https://calculator-8ikt.onrender.com', // Update with your actual URL
+    method: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ features: selectedFeatures }),
+    success: function(response) {
+        $('#total-cost').text(response.total);
+    },
+    error: function() {
+        alert('Error calculating cost. Please try again.');
+    }
+});
